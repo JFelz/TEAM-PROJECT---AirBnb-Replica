@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
+import { useRouter } from 'next/router';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
+import { useAuth } from '../utils/context/authContext';
+import { createListing, updateListing } from '../api/listingData';
 
 const initialState = {
   title: '',
@@ -19,13 +22,27 @@ const initialState = {
 
 function CreateListingForm({ obj }) {
   const [formInput, setFormInput] = useState([]);
+  const router = useRouter();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj]);
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (obj.firebaseKey) {
+      updateListing(formInput)
+        .then(() => router.push('/team'));
+    } else {
+      const payload = { ...formInput, uid: user.uid };
+      createListing(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateListing(patchPayload).then(() => {
+          router.push('/explore');
+        });
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -68,10 +85,10 @@ function CreateListingForm({ obj }) {
       <FloatingLabel controlId="floatingSelect" label="Property Type">
         <Form.Select
           aria-label="property type"
-          name="property_type"
+          name="propertyType"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.property_type} // FIXME: modify code to remove error
+          value={formInput.propertyType} // FIXME: modify code to remove error
           required
         >
           <option value="">Select...</option>
@@ -110,8 +127,8 @@ function CreateListingForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter price"
-          name="price"
-          value={formInput.price}
+          name="pricePerNight"
+          value={formInput.pricePerNight}
           onChange={handleChange}
           required
         />
@@ -145,7 +162,7 @@ function CreateListingForm({ obj }) {
         <Form.Control
           type="url"
           placeholder="Enter an image url"
-          name="image"
+          name="imageUrl"
           value={formInput.imageUrl}
           onChange={handleChange}
           required
