@@ -17,7 +17,7 @@ export default function NavBarAuth() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/">
+            <Link passHref href="/explore">
               <Nav.Link>Explore</Nav.Link>
             </Link>
             <Link passHref href="/MyListings">
