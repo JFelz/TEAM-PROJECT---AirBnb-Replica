@@ -25,7 +25,7 @@ export default function ViewAllListings() {
       <div className="d-flex flex-wrap">
         {/* TODO: map over member here using MemberCard component */}
         {listings.map((listing) => (
-          <ListingCard key={listing.firebaseKey} listingObj={listing} onUpdate={getAllListings} />
+          <ListingCard key={listing.firebaseKey} listingObj={listing} onUpdate={seeAllListings} />
         ))}
       </div>
 
