@@ -68,10 +68,10 @@ function CreateListingForm({ obj }) {
       <FloatingLabel controlId="floatingSelect" label="Property Type">
         <Form.Select
           aria-label="property type"
-          name="property_type"
+          name="propertyType"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.property_type} // FIXME: modify code to remove error
+          value={formInput.propertyType} // FIXME: modify code to remove error
           required
         >
           <option value="">Select...</option>
@@ -110,8 +110,8 @@ function CreateListingForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter price"
-          name="price"
-          value={formInput.price}
+          name="pricePerNight"
+          value={formInput.pricePerNight}
           onChange={handleChange}
           required
         />
