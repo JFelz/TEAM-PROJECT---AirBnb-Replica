@@ -33,7 +33,7 @@ function CreateListingForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateListing(formInput)
-        .then(() => router.push('/team'));
+        .then(() => router.push('/explore'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createListing(payload).then(({ name }) => {

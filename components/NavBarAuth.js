@@ -40,7 +40,7 @@ export default function NavBarAuth() {
               <Nav.Link style={{ color: 'black' }}>Create a New Listing</Nav.Link>
             </Link>
             <Link passHref href="/Profile">
-              <Nav.Link></Nav.Link>
+              <Nav.Link />
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
