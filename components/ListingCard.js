@@ -27,7 +27,7 @@ function ListingCard({ listingObj, onUpdate }) {
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE LISTING DETAILS  */}
-        <Link href={`/listing/edit/${listingObj.firebaseKey}`} passHref>
+        <Link href={`/Listings/edit/${listingObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisListing} className="m-2">
