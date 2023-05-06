@@ -11,9 +11,9 @@ const initialState = {
   title: '',
   location: '',
   property_type: '',
-  beds: '',
-  baths: '',
-  price: 0,
+  beds: 0,
+  baths: 0,
+  pricePerNight: 0,
   description: '',
   amenities: '',
   imageUrl: '',
@@ -102,7 +102,7 @@ function CreateListingForm({ obj }) {
       {/* PRICE INPUT  */}
       <FloatingLabel controlId="floatingInput3" label="Beds" className="mb-3">
         <Form.Control
-          type="text"
+          type="number"
           placeholder="Beds"
           name="beds"
           value={formInput.beds}
@@ -113,7 +113,7 @@ function CreateListingForm({ obj }) {
 
       <FloatingLabel controlId="floatingInput3" label="Baths" className="mb-3">
         <Form.Control
-          type="text"
+          type="number"
           placeholder="Baths"
           name="baths"
           value={formInput.baths}
@@ -125,7 +125,7 @@ function CreateListingForm({ obj }) {
       {/* PRICE INPUT  */}
       <FloatingLabel controlId="floatingInput3" label="Listing Price" className="mb-3">
         <Form.Control
-          type="text"
+          type="number"
           placeholder="Enter price"
           name="pricePerNight"
           value={formInput.pricePerNight}
@@ -195,9 +195,9 @@ CreateListingForm.propTypes = {
   obj: PropTypes.shape({
     title: PropTypes.string,
     location: PropTypes.string,
-    beds: PropTypes.string,
+    beds: PropTypes.number,
     baths: PropTypes.number,
-    price: PropTypes.number,
+    pricePerNight: PropTypes.number,
     description: PropTypes.string,
     amenities: PropTypes.string,
     imageUrl: PropTypes.string,
