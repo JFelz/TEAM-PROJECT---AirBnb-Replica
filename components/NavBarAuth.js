@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 import airbnbLogo from '../public/airbnb-logo-10.png';
+import NavStyle from '../styles/NavStyles';
 
 export default function NavBarAuth() {
   return (
@@ -15,36 +16,40 @@ export default function NavBarAuth() {
         {/* <Link passHref href="/">
           <Navbar.Brand style={{ color: '#FF385C' }}>AirBnb</Navbar.Brand>
         </Link> */}
-        <Container>
+        <Container style={{
+          display: 'flex',
+          justifyContent: 'start',
+          alignItems: 'center',
+        }}
+        >
           <Navbar.Brand>
             <Image
               src={airbnbLogo}
-              width={150}
+              width={135}
               height={40}
-              className="d-inline-block align-top"
               alt="Airbnb logo"
             />
           </Navbar.Brand>
         </Container>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/explore">
-              <Nav.Link style={{ color: 'black' }}>Explore</Nav.Link>
-            </Link>
-            <Link passHref href="/MyListings">
-              <Nav.Link style={{ color: 'black' }}>My Listings</Nav.Link>
-            </Link>
-            <Link passHref href="/Listings/New">
-              <Nav.Link style={{ color: 'black' }}>Create a New Listing</Nav.Link>
-            </Link>
-            <Link passHref href="/Profile">
-              <Nav.Link></Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
-          </Nav>
-        </Navbar.Collapse>
+        <Navbar aria-controls="responsive-navbar-nav" />
+        {/* <Navbar id="responsive-navbar-nav"> */}
+        <Nav className="me-auto spa">
+          {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
+          <Link passHref href="/explore">
+            <Nav.Link className="Explore" style={NavStyle}>Explore</Nav.Link>
+          </Link>
+          <Link passHref href="/MyListings">
+            <Nav.Link style={NavStyle}>My Listings</Nav.Link>
+          </Link>
+          <Link passHref href="/Listings/New">
+            <Nav.Link className="NewListing" style={NavStyle}>Create Listing</Nav.Link>
+          </Link>
+          <Link passHref href="/profile">
+            <Nav.Link style={NavStyle}>Profile</Nav.Link>
+          </Link>
+          <Button style={{ width: '100px', height: '50px' }} variant="danger" onClick={signOut}>Log Out</Button>
+        </Nav>
+        {/* </Navbar> */}
       </Container>
     </Navbar>
   );
