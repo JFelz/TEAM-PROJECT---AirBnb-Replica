@@ -12,6 +12,7 @@ function ListingCard({ listingObj, onUpdate }) {
   };
 
   return (
+
     <Link href={`/Listings/${listingObj.firebaseKey}`} passHref>
       <Card style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}>
         <Card.Img variant="top" src={listingObj.imageUrl} alt={listingObj.title} style={{ height: '400px' }} />
@@ -37,12 +38,33 @@ function ListingCard({ listingObj, onUpdate }) {
       </Card>
     </Link>
 
+    <Card style={{ width: '18rem', margin: '10px' }}>
+      <Card.Img variant="top" src={listingObj.imageUrl} alt={listingObj.title} style={{ height: '400px' }} />
+      <Card.Body>
+        <Card.Title>{listingObj.title}</Card.Title>
+        <p className="card-text bold">${listingObj.pricePerNight}</p>
+        <p className="card-text bold">{listingObj.propertyType}</p>
+        <p className="card-text bold">{listingObj.beds} BEDS</p>
+        <p className="card-text bold">{listingObj.baths} BATHS</p>
+        <p className="card-text bold">{listingObj.petsAllowed && <span>Pets Allowed<br /></span> }</p>
+        <p className="card-text bold">{listingObj.description}</p>
+        {/* DYNAMIC LINK TO VIEW THE LISTING DETAILS  */}
+        {/* DYNAMIC LINK TO EDIT THE LISTING DETAILS  */}
+        <Link href={`/Listings/edit/${listingObj.firebaseKey}`} passHref>
+          <Button variant="info">EDIT</Button>
+        </Link>
+        <Button variant="danger" onClick={deleteThisListing} className="m-2">
+          DELETE
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 
 ListingCard.propTypes = {
   listingObj: PropTypes.shape({
     imageUrl: PropTypes.string,
+    propertyType: PropTypes.string,
     title: PropTypes.string,
     pricePerNight: PropTypes.number,
     beds: PropTypes.number,
