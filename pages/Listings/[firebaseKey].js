@@ -20,7 +20,7 @@ export default function ViewListing() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
-        <img src={listingDetails.imageUrl} alt={listingDetails.title} style={{ width: '300px' }} />
+        <img src={listingDetails.imageUrl} alt={listingDetails.title} style={{ width: '300px', borderRadius: '10px' }} />
       </div>
       <div className="text-black ms-5 details">
         <h3>{listingDetails.title}</h3>

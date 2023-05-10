@@ -88,6 +88,18 @@ const updateListing = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const searchListings = (query) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/listings.json?search="${query}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   getUserListings,
   getSingleListing,
@@ -95,4 +107,5 @@ export {
   deleteListing,
   updateListing,
   createListing,
+  searchListings,
 };
