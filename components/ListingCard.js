@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -13,6 +12,32 @@ function ListingCard({ listingObj, onUpdate }) {
   };
 
   return (
+
+    <Link href={`/Listings/${listingObj.firebaseKey}`} passHref>
+      <Card style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}>
+        <Card.Img variant="top" src={listingObj.imageUrl} alt={listingObj.title} style={{ height: '400px' }} />
+        <Card.Body>
+          <Card.Title style={{ minHeight: '50px' }}>{listingObj.title}</Card.Title>
+          <p className="card-text bold">${listingObj.pricePerNight}</p>
+          <p className="card-text bold">{listingObj.beds} BEDS</p>
+          <p className="card-text bold">{listingObj.baths} BATHS</p>
+          <p className="card-text bold">{listingObj.petsAllowed && <span>Pets Allowed<br /></span> }</p>
+          <p className="card-text bold description-clamp">{listingObj.description}</p>
+          {/* DYNAMIC LINK TO VIEW THE LISTING DETAILS  */}
+          {/* DYNAMIC LINK TO EDIT THE LISTING DETAILS  */}
+        </Card.Body>
+        <Card.Footer className="text-muted">
+          <Link href={`/Listings/edit/${listingObj.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+          <Button variant="danger" onClick={deleteThisListing} className="m-2">
+            DELETE
+          </Button>
+
+        </Card.Footer>
+      </Card>
+    </Link>
+
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={listingObj.imageUrl} alt={listingObj.title} style={{ height: '400px' }} />
       <Card.Body>
@@ -24,9 +49,6 @@ function ListingCard({ listingObj, onUpdate }) {
         <p className="card-text bold">{listingObj.petsAllowed && <span>Pets Allowed<br /></span> }</p>
         <p className="card-text bold">{listingObj.description}</p>
         {/* DYNAMIC LINK TO VIEW THE LISTING DETAILS  */}
-        <Link href={`/Listings/${listingObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
         {/* DYNAMIC LINK TO EDIT THE LISTING DETAILS  */}
         <Link href={`/Listings/edit/${listingObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
