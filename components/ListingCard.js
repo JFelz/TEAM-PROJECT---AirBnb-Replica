@@ -18,6 +18,7 @@ function ListingCard({ listingObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{listingObj.title}</Card.Title>
         <p className="card-text bold">${listingObj.pricePerNight}</p>
+        <p className="card-text bold">{listingObj.propertyType}</p>
         <p className="card-text bold">{listingObj.beds} BEDS</p>
         <p className="card-text bold">{listingObj.baths} BATHS</p>
         <p className="card-text bold">{listingObj.petsAllowed && <span>Pets Allowed<br /></span> }</p>
@@ -41,6 +42,7 @@ function ListingCard({ listingObj, onUpdate }) {
 ListingCard.propTypes = {
   listingObj: PropTypes.shape({
     imageUrl: PropTypes.string,
+    propertyType: PropTypes.string,
     title: PropTypes.string,
     pricePerNight: PropTypes.number,
     beds: PropTypes.number,
