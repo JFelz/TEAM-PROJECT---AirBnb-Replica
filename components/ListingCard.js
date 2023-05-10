@@ -20,8 +20,8 @@ function ListingCard({ listingObj, onUpdate }) {
             <Card.Title style={{ minHeight: '50px' }}>{listingObj.title}</Card.Title>
             <p className="card-text bold">${listingObj.pricePerNight}</p>
             <p className="card-text bold">{listingObj.propertyType}</p>
-            <p className="card-text bold">{listingObj.beds} BEDS</p>
-            <p className="card-text bold">{listingObj.baths} BATHS</p>
+            <p className="card-text bold">{listingObj.beds} Beds</p>
+            <p className="card-text bold">{listingObj.baths} Baths</p>
             <p className="card-text bold">{listingObj.petsAllowed && <span>Pets Allowed<br /></span> }</p>
             <p className="card-text bold description-clamp">{listingObj.description}</p>
             {/* DYNAMIC LINK TO VIEW THE LISTING DETAILS  */}
