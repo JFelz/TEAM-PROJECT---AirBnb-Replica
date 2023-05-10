@@ -69,7 +69,7 @@ function CreateListingForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* IMAGE INPUT  */}
+      {/* LOCATION INPUT  */}
       <FloatingLabel controlId="floatingInput2" label="City, State" className="mb-3">
         <Form.Control
           type="text"
@@ -164,6 +164,39 @@ function CreateListingForm({ obj }) {
           placeholder="Enter an image url"
           name="imageUrl"
           value={formInput.imageUrl}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput2" label="Enter an interior image url" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an interior image url"
+          name="secondImg"
+          value={formInput.secondImg}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput2" label="Enter another interior image url" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter another interior image url"
+          name="imageUrl"
+          value={formInput.thirdImg}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput2" label="Enter one more interior image url" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter one more interior image url"
+          name="imageUrl"
+          value={formInput.fourthImg}
           onChange={handleChange}
           required
         />
