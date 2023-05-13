@@ -17,6 +17,9 @@ const initialState = {
   description: '',
   amenities: '',
   imageUrl: '',
+  secondImg: '',
+  thirdImg: '',
+  fourthImg: '',
   petsAllowed: false,
 };
 
@@ -184,7 +187,7 @@ function CreateListingForm({ obj }) {
         <Form.Control
           type="url"
           placeholder="Enter another interior image url"
-          name="imageUrl"
+          name="thirdImg"
           value={formInput.thirdImg}
           onChange={handleChange}
           required
@@ -195,7 +198,7 @@ function CreateListingForm({ obj }) {
         <Form.Control
           type="url"
           placeholder="Enter one more interior image url"
-          name="imageUrl"
+          name="fourthImg"
           value={formInput.fourthImg}
           onChange={handleChange}
           required
@@ -234,6 +237,9 @@ CreateListingForm.propTypes = {
     description: PropTypes.string,
     amenities: PropTypes.string,
     imageUrl: PropTypes.string,
+    secondImg: PropTypes.string,
+    thirdImg: PropTypes.string,
+    fourthImg: PropTypes.string,
     petsAllowed: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }),
