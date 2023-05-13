@@ -7,6 +7,7 @@ function Signin() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
       style={{
+        fontFamily: 'Tahoma',
         height: '90vh',
         padding: '30px',
         maxWidth: '400px',
@@ -15,7 +16,7 @@ function Signin() {
     >
       <h1>Hi there!</h1>
       <p>Click the button below to login!</p>
-      <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
+      <Button type="button" style={{ fontFamily: 'Tahoma' }} size="lg" className="copy-btn" onClick={signIn}>
         Sign In
       </Button>
     </div>

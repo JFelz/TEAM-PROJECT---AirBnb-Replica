@@ -50,7 +50,7 @@ export default function NavBarAuth() {
           <Link passHref href="/search">
             <Nav.Link style={NavStyle}>Search</Nav.Link>
           </Link>
-          <Button style={{ width: '100px', height: '50px' }} variant="danger" onClick={signOut}>Log Out</Button>
+          <Button style={{ width: '100px', height: '50px', fontFamily: 'Tahoma' }} variant="danger" onClick={signOut}>Log Out</Button>
         </Nav>
         {/* </Navbar> */}
       </Container>
