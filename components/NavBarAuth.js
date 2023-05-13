@@ -44,9 +44,6 @@ export default function NavBarAuth() {
           <Link passHref href="/Listings/New">
             <Nav.Link className="NewListing" style={NavStyle}>Create Listing</Nav.Link>
           </Link>
-          <Link passHref href="/profile">
-            <Nav.Link style={NavStyle}>Profile</Nav.Link>
-          </Link>
           <Link passHref href="/search">
             <Nav.Link style={NavStyle}>Search</Nav.Link>
           </Link>
